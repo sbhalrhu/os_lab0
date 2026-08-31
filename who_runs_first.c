@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <sys/wait.h>
+#include <sys/types.h>
 #define ITERATIONS 1000
 
 int main(void)
