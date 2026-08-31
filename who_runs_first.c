@@ -15,12 +15,12 @@ int main(void)
         pid_t pid = fork();
         if (pid) {
             write(STDOUT_FILENO, parentText, sizeof(parentText)-1);
-            write(STDOUT_FILENO, newLine, sizeof(newLine)-1);
             wait(NULL);
         } else {
             write(STDOUT_FILENO, childText, sizeof(childText)-1);
-            write(STDOUT_FILENO, newLine, sizeof(newLine)-1);
             return 0;
         }
+        write(STDOUT_FILENO, newLine, sizeof(newLine)-1);
     }
+    return 0;  
 }
