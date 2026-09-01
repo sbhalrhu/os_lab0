@@ -15,11 +15,11 @@ int main(void)
     {
         pid_t pid = fork();
         if (pid) {
-            printf("parent ");
+            printf("parent");
             fflush(stdout);
             wait(NULL);
         } else {
-            printf("child ");
+            printf("child");
             fflush(stdout);
             return 0;
         }
