@@ -15,15 +15,28 @@ int main(void)
     {
         pid_t pid = fork();
         if (pid) {
+            /*
             sleep(SLEEP); 
             write(STDOUT_FILENO, parentText, sizeof(parentText)-1);
+            */
+            printf("parent");
             wait(NULL);
         } else {
-            sleep(SLEEP);
+            /*sleep(SLEEP);
             write(STDOUT_FILENO, childText, sizeof(childText)-1);
+            */
+            printf("child");
             return 0;
         }
-        write(STDOUT_FILENO, newLine, sizeof(newLine)-1);
+        /*write(STDOUT_FILENO, newLine, sizeof(newLine)-1);*/
+        printf("\n");
     }
     return 0;  
 }
+
+/* printf with a flush: parentchild mostly
+ * printf without a flush: childparent entirely
+ * write: parentchild mostly
+ * sleep: parentchild mostly; causes program to run much slower
+ *
+*/
