@@ -20,12 +20,14 @@ int main(void)
             write(STDOUT_FILENO, parentText, sizeof(parentText)-1);
             */
             printf("parent");
+            fflush(stdout);
             wait(NULL);
         } else {
             /*sleep(SLEEP);
             write(STDOUT_FILENO, childText, sizeof(childText)-1);
             */
             printf("child");
+            fflush(stdout);
             return 0;
         }
         /*write(STDOUT_FILENO, newLine, sizeof(newLine)-1);*/
