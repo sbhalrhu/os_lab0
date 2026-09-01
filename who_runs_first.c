@@ -16,11 +16,11 @@ int main(void)
         pid_t pid = fork();
         if (pid) {
             printf("parent");
-            fflush(stdout);
+            /*fflush(stdout); */
             wait(NULL);
         } else {
             printf("child");
-            fflush(stdout);
+            /*fflush(stdout); */
             return 0;
         }
         printf("\n");
