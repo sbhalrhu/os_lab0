@@ -15,11 +15,11 @@ int main(void)
     {
         pid_t pid = fork();
         if (pid) {
-            /*sleep(SLEEP); */
+            sleep(SLEEP); 
             write(STDOUT_FILENO, parentText, sizeof(parentText)-1);
             wait(NULL);
         } else {
-            /*sleep(SLEEP);*/
+            sleep(SLEEP);
             write(STDOUT_FILENO, childText, sizeof(childText)-1);
             return 0;
         }
