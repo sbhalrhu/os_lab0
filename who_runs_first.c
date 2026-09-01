@@ -3,6 +3,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #define ITERATIONS 1000
+#define SLEEP 1.0
 
 int main(void)
 {
@@ -14,13 +15,15 @@ int main(void)
     {
         pid_t pid = fork();
         if (pid) {
-            write(STDOUT_FILENO, parentText, sizeof(parentText)-1);
+            printf("parent ");
+            fflush(stdout);
             wait(NULL);
         } else {
-            write(STDOUT_FILENO, childText, sizeof(childText)-1);
+            printf("child ");
+            fflush(stdout);
             return 0;
         }
-        write(STDOUT_FILENO, newLine, sizeof(newLine)-1);
+        printf("\n");
     }
     return 0;  
 }
