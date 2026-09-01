@@ -15,15 +15,15 @@ int main(void)
     {
         pid_t pid = fork();
         if (pid) {
-            printf("parent");
-            /*fflush(stdout); */
+            /*sleep(SLEEP); */
+            write(STDOUT_FILENO, parentText, sizeof(parentText)-1);
             wait(NULL);
         } else {
-            printf("child");
-            /*fflush(stdout); */
+            /*sleep(SLEEP);*/
+            write(STDOUT_FILENO, childText, sizeof(childText)-1);
             return 0;
         }
-        printf("\n");
+        write(STDOUT_FILENO, newLine, sizeof(newLine)-1);
     }
     return 0;  
 }
